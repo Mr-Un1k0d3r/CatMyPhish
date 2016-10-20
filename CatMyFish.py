@@ -13,7 +13,7 @@ if __name__ == "__main__":
 	try:
 		from bs4 import BeautifulSoup
 	except:
-		print "bs4 not found"
+		print "[-] Fatal erro: bs4 not found"
 		print "pip install beautifulsoup4"
 		sys.exit(0)
 
