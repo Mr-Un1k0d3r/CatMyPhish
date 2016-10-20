@@ -32,7 +32,7 @@ if __name__ == "__main__":
 	urls = {"expireddomain": {"get": "/domain-name-search/?q=", "post": "fdomainstart=&fdomain=&fdomainend=&flists%5B%5D=1&ftrmaxhost=0&ftrminhost=0&ftrbl=0&ftrdomainpop=0&ftrabirth_year=0&ftlds%5B%5D=2&button_submit=Apply+Filter&q=", "host": "https://www.expireddomains.net", "referer": "https://www.expireddomains.net/domain-name-search/?q=test&searchinit=1"}, \
 "bluecoat": {"get": "/rest/categorization", "post": "url=", "host": "https://sitereview.bluecoat.com", "referer": None}, \
 "instantdomain": {"get": "/services/all/", "post": None, "host": "https://instantdomainsearch.com"}}
-	blacklisted = ["Phishing", "Suspicious", "Shopping", "Uncategorized", "Placeholders", "Pornography", "Spam"]
+	blacklisted = ["Phishing", "Suspicious", "Shopping", "Uncategorized", "Placeholders", "Pornography", "Spam", "Scam/Questionable/Illegal"]
 	keyword = sys.argv[1]
 		
 	request = urllib2.Request(urls["expireddomain"]["host"] + urls["expireddomain"]["get"] + keyword)
