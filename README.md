@@ -13,7 +13,10 @@ Options:
 ```
 
 # Warning
-the BlueCoat categorization search is slow to avoid captcha
+the BlueCoat categorization search is slow to avoid captcha.
+
+# TODO
+Validate the candidate are available for purchase.
 
 # Credit
 Charles F. Hamilton
