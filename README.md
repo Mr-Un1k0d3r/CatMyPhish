@@ -24,7 +24,7 @@ CatMyFish v1.0 - Search for available already categorized domain
 Charles F. Hamilton - Mandiant 2016
 
 [+] (25) domains found using the keyword "sugar".
-[+] BlueCoat categorization check may take several seconds. Bot check is pretty aggressive...
+[+] BlueCoat categorization check may take several minutes. Bot check is pretty aggressive...
 [+] Potential candidate: SugarNines.com categorized as Personal Sites.
 [+] Potential candidate: CreativeSugarFlowers.com categorized as Restaurants/Dining/Food.
 [+] Potential candidate: mysugargrove.com categorized as Society/Daily Living.
