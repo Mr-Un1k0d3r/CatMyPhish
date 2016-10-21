@@ -2,7 +2,7 @@
 Search for categorized domain that can be used during red teaming engagement. Perfect to setup whitelisted domain for your 
 Cobalt Strike beacon C&C. 
 
-It rely on expireddomains.net to obtain a list of expired domains. The domain availability is validated using checkdomain.com
+It relies on expireddomains.net to obtain a list of expired domains. The domain availability is validated using checkdomain.com
 
 # Usage
 ```
@@ -15,8 +15,8 @@ Options:
         -verbose        More verbose output
         -exitone        Stop querying BlueCoat after first success
         -filename       Pull list from a file (-filename=path)
-
 ```
+
 # Example
 ```
 $ python CatMyFish.py sugar
