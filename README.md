@@ -1,5 +1,8 @@
 # CatMyFish
-Search for categorized domain that can be used during red teaming engagement.
+Search for categorized domain that can be used during red teaming engagement. Perfect to setup whitelisted domain for your 
+Cobalt Strike beacon C&C. 
+
+It rely on expireddomains.net to obtain a list of expired domains. The domain availability is validated using checkdomain.com
 
 # Usage
 ```
@@ -10,6 +13,9 @@ Charles F. Hamilton - Mandiant 2016
 Usage CatMyFish.py keyword
 Options:
         -verbose        More verbose output
+        -exitone        Stop querying BlueCoat after first success
+        -filename       Pull list from a file (-filename=path)
+
 ```
 # Example
 ```
@@ -17,18 +23,33 @@ $ python CatMyFish.py sugar
 CatMyFish v1.0 - Search for available already categorized domain
 Charles F. Hamilton - Mandiant 2016
 
-[+] (24) domains found using the keyword "sugar"
-[+] Potential candidate: SugarAntiques.com categorized as Business/Economy
-[+] Potential candidate: sugarktrading.com categorized as Restaurants/Dining/Food
-[+] (2) candidates found using the keyword "sugar"
-[+] Search completed
+[+] (25) domains found using the keyword "sugar".
+[+] BlueCoat categorization check may take several seconds. Bot check is pretty aggressive...
+[+] Potential candidate: SugarNines.com categorized as Personal Sites.
+[+] Potential candidate: CreativeSugarFlowers.com categorized as Restaurants/Dining/Food.
+[+] Potential candidate: mysugargrove.com categorized as Society/Daily Living.
+[+] Potential candidate: SugarTreeScrapbook.com categorized as Society/Daily Living.
+[+] Potential candidate: SugarlandMania.com categorized as Entertainment.
+[+] Potential candidate: SugarTreeProperties.com categorized as Real Estate.
+[+] Potential candidate: BloodSugarTips.com categorized as Health.
+[+] Potential candidate: SugarmillWoodsNews.com categorized as Real Estate.
+[+] (8) candidates found.
+[+] Awesome "SugarNines.com" is categorized and available.
+[+] Awesome "CreativeSugarFlowers.com" is categorized and available.
+[+] Awesome "mysugargrove.com" is categorized and available.
+[+] Awesome "SugarTreeScrapbook.com" is categorized and available.
+[+] Awesome "SugarlandMania.com" is categorized and available.
+[+] Awesome "SugarTreeProperties.com" is categorized and available.
+[+] Awesome "BloodSugarTips.com" is categorized and available.
+[+] Awesome "SugarmillWoodsNews.com" is categorized and available.
+[+] Search completed.
 ```
 
 # Warning
 the BlueCoat categorization search is slow to avoid captcha.
 
 # TODO
-Validate the candidate are available for purchase.
+OCR to bypass BlueCoat captcha?
 
 # Credit
-Charles F. Hamilton
+Charles F. Hamilton Aka Mr.Un1k0d3r RingZer0 Team
