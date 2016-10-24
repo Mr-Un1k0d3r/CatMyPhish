@@ -29,9 +29,11 @@ if __name__ == "__main__":
 	filename = None
 	exitone = True if "-exitone" in sys.argv else False
 
-	urls = {"expireddomain": {"get": "/domain-name-search/?q=", "post": "fdomainstart=&fdomain=&fdomainend=&flists%5B%5D=1&ftrmaxhost=0&ftrminhost=0&ftrbl=0&ftrdomainpop=0&ftrabirth_year=0&ftlds%5B%5D=2&button_submit=Apply+Filter&q=", "host": "https://www.expireddomains.net", "referer": "https://www.expireddomains.net/domain-name-search/?q=test&searchinit=1"}, \
+	urls = {"expireddomain": {"get": "/domain-name-search/?q=", "post": "fdomainstart=&fdomain=&fdomainend=&flists%5B%5D=1&ftrmaxhost=0&ftrminhost=0&ftrbl=0&ftrdomainpop=0&ftrabirth_year=0&ftlds%5B%5D=2&button_submit=Apply+Filter&q=", "host": 
+"https://www.expireddomains.net", "referer": "https://www.expireddomains.net/domain-name-search/?q=test&searchinit=1"}, \
 "bluecoat": {"get": "/rest/categorization", "post": "url=", "host": "https://sitereview.bluecoat.com", "referer": None}, \
 "checkdomain": {"get": "/cgi-bin/checkdomain.pl?domain=", "post": None, "host": "http://www.checkdomain.com"}}
+	# TODO: Need to add more to that list
 	blacklisted = ["Phishing", "Suspicious", "Shopping", "Uncategorized", "Placeholders", "Pornography", "Spam", "Scam/Questionable/Illegal"]
 	
 	if "-verbose" in sys.argv:
@@ -77,7 +79,6 @@ if __name__ == "__main__":
 		request.add_header("X-Requested-With", "XMLHttpRequest")
 		response = urllib2.urlopen(request, urls["bluecoat"]["post"] + host)
 		try:
-			# TODO implement captcha bypass using OCR
 			json_data = json.loads(response.read())
 			if json_data.has_key("errorType"):
 				if json_data["errorType"] == "captcha":
