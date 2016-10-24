@@ -49,7 +49,8 @@ Charles F. Hamilton - Mandiant 2016
 the BlueCoat categorization search is slow to avoid captcha.
 
 # TODO
-OCR to bypass BlueCoat captcha?
+Categorization check against other vendors.
+Populate the blacklisted categories 
 
 # Credit
 Charles F. Hamilton Aka Mr.Un1k0d3r RingZer0 Team
