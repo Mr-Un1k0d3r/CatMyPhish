@@ -29,7 +29,7 @@ if __name__ == "__main__":
 	filename = None
 	exitone = True if "-exitone" in sys.argv else False
 
-	urls = {"expireddomain": {"get": "/domain-name-search/?q=", "post": "fdomainstart=&fdomain=&fdomainend=&flists%5B%5D=" + str(random.randrange(1,10)) + "&ftrmaxhost=0&ftrminhost=0&ftrbl=0&ftrdomainpop=0&ftrabirth_year=0&ftlds%5B%5D=2&button_submit=Apply+Filter&q=", "host": 
+	urls = {"expireddomain": {"get": "/domain-name-search/?q=", "post": "fdomainstart=&fdomain=&fdomainend=&flists%5B%5D=1&ftrmaxhost=0&ftrminhost=0&ftrbl=0&ftrdomainpop=0&ftrabirth_year=0&ftlds%5B%5D=2&button_submit=Apply+Filter&q=", "host": 
 "https://www.expireddomains.net", "referer": "https://www.expireddomains.net/domain-name-search/?q=test&searchinit=1"}, \
 "bluecoat": {"get": "/rest/categorization", "post": "url=", "host": "https://sitereview.bluecoat.com", "referer": None}, \
 "checkdomain": {"get": "/cgi-bin/checkdomain.pl?domain=", "post": None, "host": "http://www.checkdomain.com"}}
