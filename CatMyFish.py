@@ -34,7 +34,7 @@ if __name__ == "__main__":
 "bluecoat": {"get": "/rest/categorization", "post": "url=", "host": "https://sitereview.bluecoat.com", "referer": None}, \
 "checkdomain": {"get": "/cgi-bin/checkdomain.pl?domain=", "post": None, "host": "http://www.checkdomain.com"}}
 	# TODO: Need to add more to that list
-	blacklisted = ["Phishing", "Suspicious", "Shopping", "Uncategorized", "Placeholders", "Pornography", "Spam", "Scam/Questionable/Illegal"]
+	blacklisted = ["Phishing", "Suspicious", "Shopping", "Uncategorized", "Placeholders", "Pornography", "Spam", "Scam/Questionable/Illegal", " Malicious Sources/Malnets"]
 	
 	if "-verbose" in sys.argv:
 		print "[+] Verbose mode enabled"
