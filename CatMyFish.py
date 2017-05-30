@@ -59,6 +59,7 @@ if __name__ == "__main__":
 		request = urllib2.Request(urls["expireddomain"]["host"] + urls["expireddomain"]["get"] + keyword)
 		request.add_header("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:49.0) Gecko/20100101 Firefox/49.0")
 		request.add_header("Referer", urls["expireddomain"]["referer"])
+		# the _pk_id is hardcoded for now
 		request.add_header("Cookie", cookies + "_pk_ses.10.dd0a=*; _pk_id.10.dd0a=5abbbc772cbacfb2.1496158514.1.1496158514.1496158514")	
 		response = urllib2.urlopen(request, urls["expireddomain"]["post"] + keyword)
 		html = BeautifulSoup(response.read(), "html.parser")
