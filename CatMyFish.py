@@ -76,7 +76,7 @@ if __name__ == "__main__":
 			hosts.append(line.strip())
 		print "[+] (%d) domains loaded." % (len(hosts))
 			
-	print "[+] BlueCoat categorization check may take several minutes. Bot check is pretty aggressive..."
+	print "[+] Symantec categorization check may take several minutes. Bot check is pretty aggressive..."
 	
 	for host in hosts:
 		request = urllib2.Request(urls["bluecoat"]["host"] + urls["bluecoat"]["get"])
@@ -89,7 +89,7 @@ if __name__ == "__main__":
 			json_data = json.loads(response.read())
 			if json_data.has_key("errorType"):
 				if json_data["errorType"] == "captcha":
-					print "[-] BlueCoat blocked us :(" 
+					print "[-] Symantec blocked us :(" 
 					sys.exit(0)
 								
 			cat = BeautifulSoup(json_data["categorization"], "html.parser")
