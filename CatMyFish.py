@@ -19,7 +19,7 @@ if __name__ == "__main__":
 		sys.exit(0)
 
 	if len(sys.argv) < 2:
-		print "Usage %s keyword\nOptions:\n\t-verbose\tMore verbose output\n\t-exitone\tStop querying BlueCoat after first success\n\t-filename\tPull list from a file (-filename=path)" % sys.argv[0]
+		print "Usage %s keyword\nOptions:\n\t-verbose\tMore verbose output\n\t-exitone\tStop querying Symantec after first success\n\t-filename\tPull list from a file (-filename=path)" % sys.argv[0]
 		sys.exit(0)
 	
 	hosts = []
