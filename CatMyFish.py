@@ -9,7 +9,7 @@ version = "1.0"
 
 if __name__ == "__main__":
 	print "CatMyFish v%s - Search for available already categorized domain" % version
-	print "Charles F. Hamilton - Mandiant 2016\n"
+	print "Mr.Un1k0d3r - RingZer0 Team 2016\n"
 
 	try:
 		from bs4 import BeautifulSoup
@@ -91,7 +91,7 @@ if __name__ == "__main__":
 				if json_data["errorType"] == "captcha":
 					print "[-] BlueCoat blocked us :(" 
 					sys.exit(0)
-					
+								
 			cat = BeautifulSoup(json_data["categorization"], "html.parser")
 			cat = cat.find("a")
 			cat = cat.text
