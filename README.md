@@ -13,7 +13,7 @@ Charles F. Hamilton - Mandiant 2016
 Usage CatMyFish.py keyword
 Options:
         -verbose        More verbose output
-        -exitone        Stop querying BlueCoat after first success
+        -exitone        Stop querying Symatec after first success
         -filename       Pull list from a file (-filename=path)
 ```
 
@@ -24,7 +24,7 @@ CatMyFish v1.0 - Search for available already categorized domain
 Charles F. Hamilton - Mandiant 2016
 
 [+] (25) domains found using the keyword "sugar".
-[+] BlueCoat categorization check may take several minutes. Bot check is pretty aggressive...
+[+] Symantec categorization check may take several minutes. Bot check is pretty aggressive...
 [+] Potential candidate: SugarNines.com categorized as Personal Sites.
 [+] Potential candidate: CreativeSugarFlowers.com categorized as Restaurants/Dining/Food.
 [+] Potential candidate: mysugargrove.com categorized as Society/Daily Living.
@@ -46,11 +46,11 @@ Charles F. Hamilton - Mandiant 2016
 ```
 
 # Warning
-the BlueCoat categorization search is slow to avoid captcha.
+the Symantec categorization search is slow to avoid captcha.
 
 # TODO
 Categorization check against other vendors.
 Populate the blacklisted categories 
 
 # Credit
-Charles F. Hamilton Aka Mr.Un1k0d3r RingZer0 Team
+Mr.Un1k0d3r RingZer0 Team
