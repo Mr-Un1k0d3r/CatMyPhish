@@ -4,6 +4,7 @@ import sys
 import time
 import json
 import random
+import argparse
 
 version = "1.0"
 
@@ -18,17 +19,22 @@ if __name__ == "__main__":
 		print "pip install beautifulsoup4"
 		sys.exit(0)
 
-	if len(sys.argv) < 2:
-		print "Usage %s keyword\nOptions:\n\t-verbose\tMore verbose output\n\t-exitone\tStop querying Symantec after first success\n\t-filename\tPull list from a file (-filename=path)" % sys.argv[0]
-		sys.exit(0)
-	
 	hosts = []
 	candidates = []
-	keyword = ""
-	verbose = False
-	filename = None
-	exitone = True if "-exitone" in sys.argv else False
-
+	
+	parser = argparse.ArgumentParser()
+	parser.add_argument("-v","--verbose", help="More verbose output", action="store_true")
+	parser.add_argument("-e","--exitone", help="Stop querying Symantec after first success", action="store_true")
+	group = parser.add_mutually_exclusive_group(required=True)
+	group.add_argument("-f","--filename",help="Loads domains to check from a text file, instead of searching", type=str)
+	group.add_argument("keyword", help="Keyword to use when search for expired domains", nargs='*', default=[])
+	args = parser.parse_args()
+	
+	verbose = args.verbose
+	exitone = args.exitone
+	keyword = args.keyword
+	filename = args.filename
+	
 	urls = {"expireddomain": {"get": "/domain-name-search/?q=", "post": "fdomainstart=&fdomain=&fdomainend=&flists%5B%5D=1&ftrmaxhost=0&ftrminhost=0&ftrbl=0&ftrdomainpop=0&ftrabirth_year=0&ftlds%5B%5D=2&button_submit=Apply+Filter&q=", "host": 
 "https://www.expireddomains.net", "referer": "https://www.expireddomains.net/domain-name-search/?q=&searchinit=1"}, \
 "bluecoat": {"get": "/rest/categorization", "post": "url=", "host": "https://sitereview.bluecoat.com", "referer": None}, \
@@ -36,26 +42,20 @@ if __name__ == "__main__":
 	# TODO: Need to add more to that list
 	blacklisted = ["Phishing", "Web Ads/Analytics", "Suspicious", "Shopping", "Uncategorized", "Placeholders", "Pornography", "Spam", "Gambling", "Scam/Questionable/Illegal", " Malicious Sources/Malnets"]
 	
-	if "-verbose" in sys.argv:
+	if args.verbose:
 		print "[+] Verbose mode enabled"
-		verbose = True
 		
-	for item in sys.argv:
-		if not item.find("-filename") == -1:
-			filename = item.split("=")[1]
-			if not os.path.exists(filename):
-				print "[-] \"%s\" not found." % filename
-				exit(0)
-			break
+	if args.filename and not os.path.exists(filename):
+		print "[-] \"%s\" not found." % filename
+		exit(0)
 			
-	if filename == None:
+	if not args.filename:
                 request = urllib2.Request(urls["expireddomain"]["host"])
                 request.add_header("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:49.0) Gecko/20100101 Firefox/49.0")
                 response = urllib2.urlopen(request)
                 cookies =  "ExpiredDomainssessid=" + response.info().getheader("Set-Cookie").split("ExpiredDomainssessid=")[1].split(";")[0] + "; urih="
                 cookies = cookies + response.info().getheader("Set-Cookie").split("urih=")[1].split(";")[0] + "; "
 
-		keyword = sys.argv[1]
 		request = urllib2.Request(urls["expireddomain"]["host"] + urls["expireddomain"]["get"] + keyword)
 		request.add_header("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:49.0) Gecko/20100101 Firefox/49.0")
 		request.add_header("Referer", urls["expireddomain"]["referer"])
