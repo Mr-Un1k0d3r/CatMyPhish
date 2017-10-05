@@ -6,15 +6,25 @@ It relies on expireddomains.net to obtain a list of expired domains. The domain 
 
 # Usage
 ```
-$ python CatMyFish.py
+$ python CatMyFish.py -h
 CatMyFish v1.0 - Search for available already categorized domain
-Charles F. Hamilton - Mandiant 2016
+Mr.Un1k0d3r - RingZer0 Team 2016
 
-Usage CatMyFish.py keyword
-Options:
-        -verbose        More verbose output
-        -exitone        Stop querying Symatec after first success
-        -filename       Pull list from a file (-filename=path)
+usage: CatMyFish.py [-h] [-v] [-e] [-f FILENAME] [-o OUTPUT]
+                    [keywords [keywords ...]]
+
+positional arguments:
+  keywords              Keyword to use when search for expired domains
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -v, --verbose         More verbose output
+  -e, --exitone         Stop querying Symantec after first success
+  -f FILENAME, --filename FILENAME
+                        Loads domains to check from a text file, instead of
+                        searching
+  -o OUTPUT, --output OUTPUT
+                        Write unregistered, categorized domains to a file.
 ```
 
 # Example
@@ -46,11 +56,11 @@ Charles F. Hamilton - Mandiant 2016
 ```
 
 # Warning
-the Symantec categorization search is slow to avoid captcha.
+the Symantec categorization search is slow to avoid captcha. Using proxychains and Tor is a good workaround. 
 
 # TODO
-Categorization check against other vendors.
-Populate the blacklisted categories 
+- Categorization check against other vendors.
+- Populate the blacklisted categories 
 
 # Credit
 Mr.Un1k0d3r RingZer0 Team
