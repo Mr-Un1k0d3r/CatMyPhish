@@ -31,7 +31,7 @@ optional arguments:
 ```
 $ python CatMyFish.py sugar
 CatMyFish v1.0 - Search for available already categorized domain
-Charles F. Hamilton - Mandiant 2016
+Mr.Un1k0d3r - RingZer0 Team 2016
 
 [+] (25) domains found using the keyword "sugar".
 [+] Symantec categorization check may take several minutes. Bot check is pretty aggressive...
