@@ -16,6 +16,7 @@ def get_hosts_from_keywords(keywords):
     :return: hosts matching the searched keywords
     """
     hosts = []
+    f = None
     for keyword in keywords:
         request = urllib2.Request(urls["expireddomain"]["host"])
         request.add_header("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:49.0) Gecko/20100101 Firefox/49.0")
@@ -151,8 +152,7 @@ if __name__ == "__main__":
         request.add_header("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:49.0) Gecko/20100101 Firefox/49.0")
         request.add_header("Referer", urls["checkdomain"]["host"])
         response = urllib2.urlopen(request)
-
-        f = None
+        
         if output_file:
             f = open(output_file, "w")
         if not response.read().find("is still available") == -1:
