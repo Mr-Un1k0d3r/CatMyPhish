@@ -16,7 +16,6 @@ def get_hosts_from_keywords(keywords):
     :return: hosts matching the searched keywords
     """
     hosts = []
-    f = None
     for keyword in keywords:
         request = urllib2.Request(urls["expireddomain"]["host"])
         request.add_header("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:49.0) Gecko/20100101 Firefox/49.0")
@@ -87,7 +86,8 @@ if __name__ == "__main__":
 
     hosts = []
     candidates = []
-
+    f = None
+    
     parser = argparse.ArgumentParser()
     parser.add_argument("-v", "--verbose", help="More verbose output", action="store_true")
     parser.add_argument("-e", "--exitone", help="Stop querying Symantec after first success", action="store_true")
