@@ -57,7 +57,7 @@ def get_category(host):
     request.add_header("Origin", urls["bluecoat"]["host"])
     request.add_header("Referer", "https://sitereview.bluecoat.com/sitereview.jsp")
     request.add_header("X-Requested-With", "XMLHttpRequest")
-    response = urllib2.urlopen(request, urls["bluecoat"]["post"] + host)
+    response = urllib2.urlopen(request, urls["bluecoat"]["post"].replace("[URL]", host))
     try:
         json_data = json.loads(response.read())
         if json_data.has_key("errorType"):
@@ -109,7 +109,7 @@ if __name__ == "__main__":
                               "host":
                                   "https://www.expireddomains.net",
                               "referer": "https://www.expireddomains.net/domain-name-search/?q=&searchinit=1"}, \
-            "bluecoat": {"get": "/rest/categorization", "post": "url=", "host": "https://sitereview.bluecoat.com",
+            "bluecoat": {"get": "/resource/lookup", "post": '{"url":"[URL]","captcha":""}', "host": "https://sitereview.bluecoat.com",
                          "referer": None}, \
             "checkdomain": {"get": "/cgi-bin/checkdomain.pl?domain=", "post": None,
                             "host": "http://www.checkdomain.com"}}
