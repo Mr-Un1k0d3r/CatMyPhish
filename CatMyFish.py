@@ -60,15 +60,12 @@ def get_category(host):
     response = urllib2.urlopen(request, urls["bluecoat"]["post"].replace("[URL]", host))
     try:
         json_data = json.loads(response.read())
+
         if json_data.has_key("errorType"):
             if json_data["errorType"] == "captcha":
                 print "[-] Symantec blocked us :("
                 sys.exit(0)
-
-        cat = BeautifulSoup(json_data["categorization"], "html.parser")
-        cat = cat.find("a")
-        cat = cat.text
-        return cat
+        return json_data["categorization"][0]["name"]
     except:
         print "[-] Something when wrong, unable to get category for %s" % host
 
