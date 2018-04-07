@@ -55,8 +55,8 @@ def get_category(host):
     request = urllib2.Request(urls["bluecoat"]["host"] + urls["bluecoat"]["get"])
     request.add_header("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:49.0) Gecko/20100101 Firefox/49.0")
     request.add_header("Origin", urls["bluecoat"]["host"])
-    request.add_header("Referer", "https://sitereview.bluecoat.com/sitereview.jsp")
-    request.add_header("X-Requested-With", "XMLHttpRequest")
+    request.add_header("Referer", "https://sitereview.bluecoat.com/lookup")
+    request.add_header("Content-Type", "application/json; charset=utf-8")
     response = urllib2.urlopen(request, urls["bluecoat"]["post"].replace("[URL]", host))
     try:
         json_data = json.loads(response.read())
