@@ -103,9 +103,7 @@ if __name__ == "__main__":
                                   "https://www.expireddomains.net",
                               "referer": "https://www.expireddomains.net/domain-name-search/?q=&searchinit=1"}, \
             "bluecoat": {"get": "/resource/lookup", "post": '{"url":"[URL]","captcha":""}', "host": "https://sitereview.bluecoat.com",
-                         "referer": None}, \
-            "checkdomain": {"get": "/cgi-bin/checkdomain.pl?domain=", "post": None,
-                            "host": "http://www.checkdomain.com"}}
+                         "referer": None}}
     # TODO: Need to add more to that list
     blacklisted = ["Phishing", "Web Ads/Analytics", "Suspicious", "Shopping", "Uncategorized", "Placeholders",
                    "Pornography", "Spam", "Gambling", "Scam/Questionable/Illegal", " Malicious Sources/Malnets"]
@@ -140,17 +138,9 @@ if __name__ == "__main__":
 
     print "[+] (%d) candidates found." % (len(candidates))
 
-    for candidate in candidates:
-        request = urllib2.Request(urls["checkdomain"]["host"] + urls["checkdomain"]["get"] + candidate.split(".")[0])
-        request.add_header("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:49.0) Gecko/20100101 Firefox/49.0")
-        request.add_header("Referer", urls["checkdomain"]["host"])
-        response = urllib2.urlopen(request)
-        
-        if output_file:
-            f = open(output_file, "w")
-        if not response.read().find("is still available") == -1:
-            print "[+] Awesome \"%s\" is categorized and available." % candidate
-            if output_file:
+    if output_file:
+        f = open(output_file, "w")
+            for candidate in candidates:
                 f.write(candidate + "\n")
 
     print "[+] Search completed."
