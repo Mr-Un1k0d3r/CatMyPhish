@@ -140,8 +140,8 @@ if __name__ == "__main__":
 
     if output_file:
         f = open(output_file, "w")
-            for candidate in candidates:
-                f.write(candidate + "\n")
+        for candidate in candidates:
+            f.write(candidate + "\n")
 
     print "[+] Search completed."
     if output_file:
