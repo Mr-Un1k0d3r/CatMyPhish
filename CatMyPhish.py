@@ -67,7 +67,7 @@ def get_category(host):
 
 
 if __name__ == "__main__":
-    print "CatMyFish v%s - Search for available already categorized domain" % version
+    print "CatMyPhish v%s - Search for available already categorized domain" % version
     print "Mr.Un1k0d3r - RingZer0 Team 2016\n"
 
     try:
