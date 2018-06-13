@@ -1,4 +1,4 @@
-# CatMyFish
+# CatMyPhish
 Search for categorized domain that can be used during red teaming engagement. Perfect to setup whitelisted domain for your 
 Cobalt Strike beacon C&C. 
 
@@ -7,10 +7,10 @@ It relies on expireddomains.net to obtain a list of expired domains. The domain 
 # Usage
 ```
 $ python CatMyFish.py -h
-CatMyFish v1.0 - Search for available already categorized domain
+CatMyPhish v1.0 - Search for available already categorized domain
 Mr.Un1k0d3r - RingZer0 Team 2016
 
-usage: CatMyFish.py [-h] [-v] [-e] [-f FILENAME] [-o OUTPUT]
+usage: CatMyPhish.py [-h] [-v] [-e] [-f FILENAME] [-o OUTPUT]
                     [keywords [keywords ...]]
 
 positional arguments:
@@ -29,8 +29,8 @@ optional arguments:
 
 # Example
 ```
-$ python CatMyFish.py sugar
-CatMyFish v1.0 - Search for available already categorized domain
+$ python CatMyPhish.py sugar
+CatMyPhish v1.0 - Search for available already categorized domain
 Mr.Un1k0d3r - RingZer0 Team 2016
 
 [+] (25) domains found using the keyword "sugar".
