@@ -5,6 +5,7 @@ import time
 import json
 import random
 import argparse
+import xml.etree.ElementTree as ET 
 
 version = "1.0"
 
@@ -55,13 +56,14 @@ def get_category(host):
     request.add_header("Content-Type", "application/json; charset=utf-8")
     response = urllib2.urlopen(request, urls["bluecoat"]["post"].replace("[URL]", host))
     try:
-        json_data = json.loads(response.read())
-
-        if json_data.has_key("errorType"):
-            if json_data["errorType"] == "captcha":
+        # They moved to XML instead of JSON
+        root = ET.fromstring(response.read())
+        if root.find('errorType'):
+            if str(root.find('errorType').text) == "captcha":
                 print "[-] Symantec blocked us :("
                 sys.exit(0)
-        return json_data["categorization"][0]["name"]
+        return list(root.find('categorization').iter())[3].text
+
     except:
         print "[-] Something when wrong, unable to get category for %s" % host
 
