@@ -1,4 +1,4 @@
-* This tool is outdated
+# This tool is outdated
 
 # CatMyPhish
 Search for categorized domain that can be used during red teaming engagement. Perfect to setup whitelisted domain for your 
